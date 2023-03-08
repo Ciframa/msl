@@ -1,0 +1,56 @@
+@mixin to-center-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 3%;
+  margin: auto;
+}
+
+@mixin to-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pad($top, $bot) {
+  padding-top: $top + rem;
+  padding-bottom: $bot + rem;
+}
+
+@mixin underline() {
+  transition: 0.3s ease all;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    background: $c-gray;
+    transition: 0.4s ease all;
+  }
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    background: $c-gray;
+    transition: 0.4s ease all;
+  }
+  &:hover {
+    font-weight: bold;
+
+    &::before {
+      width: 55%;
+    }
+    &:hover::after {
+      width: 55%;
+    }
+  }
+}
